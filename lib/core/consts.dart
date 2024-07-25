@@ -1,0 +1,4 @@
+abstract class Consts {
+  static const String privacyHeaderText = 'Dislosure';
+  static const String privacyPolicyText = "We don’t directly provide loans. We just offer you to submit te application form and get connected with the direct lenders that offer and cash advanced. Get to the application form, fill it out and submit. You will get connected with the direct lender that will inform you if your request is approved We don’t directly provide loans. We just offer you to submit te application form and get connected with the direct lenders that offer and cash advanced. Get to the application form, fill it out and submit. You will get connected with the direct lender that will inform you if your request is approved";
+}
