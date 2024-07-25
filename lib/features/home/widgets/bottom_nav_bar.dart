@@ -34,12 +34,12 @@ class BottomNavBar extends StatelessWidget {
         ),
       ],
       currentIndex: currentIndex,
-      selectedItemColor: Colors.blue,
-      unselectedItemColor: Colors.grey,
+      selectedItemColor: const Color.fromARGB(255, 32, 78, 246),
+      unselectedItemColor: const Color.fromARGB(255, 192, 192, 192),
       onTap: onItemTapped,
       showUnselectedLabels: true,
-      selectedLabelStyle: const TextStyle(color: Colors.blue),
-      unselectedLabelStyle: const TextStyle(color: Colors.grey),
+      selectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 32, 78, 246),),
+      unselectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 192, 192, 192)),
     );
   }
 }

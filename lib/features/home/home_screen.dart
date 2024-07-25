@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../core/image_assets.dart';
 import '../app_support/app_support_screen.dart';
 import '../faq/faq_screen.dart';
 import '../main/main_screen.dart';
 import '../privacy_policy/privacy_policy_screen.dart';
 import '../terms/terms_screen.dart';
 import 'widgets/bottom_nav_bar.dart';
+import 'widgets/custome_app_bar.dart';
 import 'widgets/custome_page_view.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,22 +42,24 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_getTitle()),
-        leading: _selectedIndex == 0
-            ? null
-            : IconButton(
-                icon: const ImageIcon(AssetImage(ImgAssets.arrowBack)),
-                onPressed: () {
-                  _onItemTapped(0);
-                },
-              ),
-      ),
-      body: CustomPageView(
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
-        children: _widgetOptions,
-        selectedIndex: _selectedIndex,
+      body: Column(
+        children: [
+          CustomAppBar(
+            title: _getTitle(),
+            showBackButton: false,
+            onBackButtonPressed: () {},
+            selectedIndex: _selectedIndex,
+            onItemTapped: _onItemTapped,
+          ),
+          Expanded(
+            child: CustomPageView(
+              controller: _pageController,
+              onPageChanged: _onPageChanged,
+              children: _widgetOptions,
+              selectedIndex: _selectedIndex,
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavBar(
         currentIndex: _selectedIndex,
@@ -65,7 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
 
   String _getTitle() {
     switch (_selectedIndex) {
