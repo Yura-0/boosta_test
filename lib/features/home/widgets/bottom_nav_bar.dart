@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/image_assets.dart';
+
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;
   final Function(int) onItemTapped;
@@ -11,23 +13,23 @@ class BottomNavBar extends StatelessWidget {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: ImageIcon(AssetImage(ImgAssets.home)),
           label: 'Main',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.privacy_tip),
+          icon: ImageIcon(AssetImage(ImgAssets.privacyPolicy)),
           label: 'Privacy Policy',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.article),
+          icon: ImageIcon(AssetImage(ImgAssets.terms)),
           label: 'Terms',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.help),
+          icon: ImageIcon(AssetImage(ImgAssets.faq)),
           label: 'FAQ',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.support),
+          icon: ImageIcon(AssetImage(ImgAssets.support)),
           label: 'App Support',
         ),
       ],

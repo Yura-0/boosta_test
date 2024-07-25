@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../core/image_assets.dart';
 import '../app_support/app_support_screen.dart';
 import '../faq/faq_screen.dart';
 import '../main/main_screen.dart';
 import '../privacy_policy/privacy_policy_screen.dart';
 import '../terms/terms_screen.dart';
 import 'widgets/bottom_nav_bar.dart';
+import 'widgets/custome_page_view.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -14,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  final PageController _pageController = PageController();
 
   static final List<Widget> _widgetOptions = <Widget>[
     const MainScreen(),
@@ -27,6 +30,13 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _selectedIndex = index;
     });
+    _pageController.jumpToPage(index);
+  }
+
+  void _onPageChanged(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
@@ -37,25 +47,17 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: _selectedIndex == 0
             ? null
             : IconButton(
-                icon: const Icon(Icons.arrow_back),
+                icon: const ImageIcon(AssetImage(ImgAssets.arrowBack)),
                 onPressed: () {
-                  setState(() {
-                    _selectedIndex = 0;
-                  });
+                  _onItemTapped(0);
                 },
               ),
       ),
-      body: GestureDetector(
-        onHorizontalDragEnd: (details) {
-          if (details.primaryVelocity! > 0) {
-            if (_selectedIndex != 0) {
-              setState(() {
-                _selectedIndex = 0;
-              });
-            }
-          }
-        },
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: CustomPageView(
+        controller: _pageController,
+        onPageChanged: _onPageChanged,
+        children: _widgetOptions,
+        selectedIndex: _selectedIndex,
       ),
       bottomNavigationBar: BottomNavBar(
         currentIndex: _selectedIndex,
@@ -63,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
 
   String _getTitle() {
     switch (_selectedIndex) {
