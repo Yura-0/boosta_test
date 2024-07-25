@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 1:
         return 'Privacy Policy';
       case 2:
-        return 'Terms';
+        return 'Terms of Use';
       case 3:
         return 'FAQ';
       case 4:
