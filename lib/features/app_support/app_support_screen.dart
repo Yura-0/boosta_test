@@ -3,6 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'success_screen.dart';
+import 'widgets/custome_text_field.dart';
 
 class AppSupportScreen extends StatefulWidget {
   const AppSupportScreen({super.key});
@@ -100,30 +101,10 @@ class _AppSupportScreenState extends State<AppSupportScreen> {
                 ),
               ),
               const SizedBox(height: 5.0),
-              TextFormField(
+              CustomeTextField(
                 controller: _nameController,
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  hintText: 'Your name',
-                  hintStyle: const TextStyle(
-                      color: Color.fromARGB(255, 192, 192, 192)),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 145, 171, 255),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 145, 171, 255),
-                    ),
-                  ),
-                ),
+                hintText: 'Your name',
+                maxLines: 1,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your name';
@@ -146,30 +127,10 @@ class _AppSupportScreenState extends State<AppSupportScreen> {
                 ),
               ),
               const SizedBox(height: 5.0),
-              TextFormField(
+              CustomeTextField(
                 controller: _emailController,
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  hintText: 'Your email',
-                  hintStyle: const TextStyle(
-                      color: Color.fromARGB(255, 192, 192, 192)),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 145, 171, 255),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 145, 171, 255),
-                    ),
-                  ),
-                ),
+                hintText: 'Your email',
+                maxLines: 1,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
@@ -194,30 +155,9 @@ class _AppSupportScreenState extends State<AppSupportScreen> {
                 ),
               ),
               const SizedBox(height: 5.0),
-              TextFormField(
+              CustomeTextField(
                 controller: _messageController,
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  hintText: 'Type your feedback',
-                  hintStyle: const TextStyle(
-                      color: Color.fromARGB(255, 192, 192, 192)),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 145, 171, 255),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 145, 171, 255),
-                    ),
-                  ),
-                ),
+                hintText: 'Type your feedback',
                 maxLines: 5,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
