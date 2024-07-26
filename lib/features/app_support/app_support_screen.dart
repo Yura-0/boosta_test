@@ -1,12 +1,263 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
-class AppSupportScreen extends StatelessWidget {
+import 'success_screen.dart';
+
+class AppSupportScreen extends StatefulWidget {
   const AppSupportScreen({super.key});
 
   @override
+  _AppSupportScreenState createState() => _AppSupportScreenState();
+}
+
+class _AppSupportScreenState extends State<AppSupportScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _messageController = TextEditingController();
+  bool _isLoading = false;
+
+  bool get _isFormValid {
+    return _nameController.text.isNotEmpty &&
+        _emailController.text.isNotEmpty &&
+        _messageController.text.isNotEmpty;
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _messageController.dispose();
+    super.dispose();
+  }
+
+  void _submitForm() {
+    if (_formKey.currentState?.validate() ?? false) {
+      setState(() {
+        _isLoading = true;
+      });
+
+      Future.delayed(const Duration(seconds: 1), () {
+        setState(() {
+          _isLoading = false;
+        });
+        _nameController.clear();
+        _emailController.clear();
+        _messageController.clear();
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SuccessScreen()),
+        );
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('App Support Screen'),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: Adaptive.h(3)),
+              Text(
+                "Our support team is available 24 hours a day, 7 days a week.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 19.sp,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  "We have your back, day or night.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 17.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox(height: Adaptive.h(3)),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  "Name",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 5.0),
+              TextFormField(
+                controller: _nameController,
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  hintText: 'Your name',
+                  hintStyle: const TextStyle(
+                      color: Color.fromARGB(255, 192, 192, 192)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 145, 171, 255),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 145, 171, 255),
+                    ),
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your name';
+                  }
+                  return null;
+                },
+                onChanged: (value) => setState(() {}),
+              ),
+              SizedBox(height: Adaptive.h(3)),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  "Email",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 5.0),
+              TextFormField(
+                controller: _emailController,
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  hintText: 'Your email',
+                  hintStyle: const TextStyle(
+                      color: Color.fromARGB(255, 192, 192, 192)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 145, 171, 255),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 145, 171, 255),
+                    ),
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                  } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                    return 'Please enter a valid email address';
+                  }
+                  return null;
+                },
+                onChanged: (value) => setState(() {}),
+              ),
+              SizedBox(height: Adaptive.h(3)),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  "Write your message here",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 5.0),
+              TextFormField(
+                controller: _messageController,
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  hintText: 'Type your feedback',
+                  hintStyle: const TextStyle(
+                      color: Color.fromARGB(255, 192, 192, 192)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 145, 171, 255),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 145, 171, 255),
+                    ),
+                  ),
+                ),
+                maxLines: 5,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your message';
+                  }
+                  return null;
+                },
+                onChanged: (value) => setState(() {}),
+              ),
+              SizedBox(height: Adaptive.h(3)),
+              SizedBox(
+                height: Adaptive.h(6),
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 32, 78, 246),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                  ),
+                  onPressed: _isFormValid ? _submitForm : null,
+                  child: _isLoading
+                      ? const SpinKitCircle(
+                          color: Colors.white,
+                          size: 24.0,
+                        )
+                      : Text(
+                          'Submit',
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

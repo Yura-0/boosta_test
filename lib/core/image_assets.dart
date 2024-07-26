@@ -1,4 +1,5 @@
 abstract class ImgAssets {
+  static const String appSupCheck = 'assets/images/app_sup_check.png';
   static const String arrowBack = 'assets/images/arrow_back.png';
   static const String arrowDown = 'assets/images/arrow_down.png';
   static const String faq = 'assets/images/faq.png';
