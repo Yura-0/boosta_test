@@ -4,6 +4,7 @@ abstract class ImgAssets {
   static const String arrowDown = 'assets/images/arrow_down.png';
   static const String faq = 'assets/images/faq.png';
   static const String home = 'assets/images/home.png';
+  static const String internetError = 'assets/images/internet_error.png';
   static const String leftArrow = 'assets/images/left_arrow.png';
   static const String point = 'assets/images/point.png';
   static const String privacyPolicy = 'assets/images/privacy.png';

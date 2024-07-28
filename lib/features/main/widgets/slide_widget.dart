@@ -27,53 +27,50 @@ class SlideWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Container(
-            width: double.infinity,
-            height: Adaptive.h(40),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.white,
-            ),
-            child: Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: Adaptive.w(5)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(imagePath),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: Adaptive.h(4), bottom: Adaptive.h(1)),
-                      child: Text(
-                        headText,
-                        style: TextStyle(
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.bold,
-                          color: const Color(0xFF2050F6),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Text(
-                      text,
+        Container(
+          width: double.infinity,
+          height: Adaptive.h(40),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.white,
+          ),
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: Adaptive.w(5)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(imagePath),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: Adaptive.h(4), bottom: Adaptive.h(1)),
+                    child: Text(
+                      headText,
                       style: TextStyle(
-                        fontSize: 17.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFF2050F6),
                       ),
                       textAlign: TextAlign.center,
                     ),
-                  ],
-                ),
+                  ),
+                  Text(
+                    text,
+                    style: TextStyle(
+                      fontSize: 17.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ),
           ),
         ),
         if (showLeftArrow)
           Positioned(
-            left: 25,
+            left: 15,
             top: 0,
             bottom: 0,
             child: Container(
@@ -90,7 +87,7 @@ class SlideWidget extends StatelessWidget {
           ),
         if (showRightArrow)
           Positioned(
-            right: 25,
+            right: 15,
             top: 0,
             bottom: 0,
             child: Container(

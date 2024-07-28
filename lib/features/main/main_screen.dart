@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../core/image_assets.dart';
+import '../../core/routes.dart';
 import 'widgets/circle_widget.dart';
 import 'widgets/slide_widget.dart';
 
@@ -30,6 +31,10 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
+  void _openWebView() {
+    Navigator.pushNamed(context, Routes.webView);
+  }
+
   @override
   void dispose() {
     _pageController.dispose();
@@ -40,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: Adaptive.w(2),
+        horizontal: Adaptive.w(4),
       ),
       child: SingleChildScrollView(
         child: Column(
@@ -70,7 +75,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.symmetric(vertical: Adaptive.h(3)),
+              padding: EdgeInsets.symmetric(vertical: Adaptive.h(3)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -135,6 +140,47 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ],
               ),
+            ),
+            SizedBox(height: Adaptive.h(2)),
+            SizedBox(
+              height: Adaptive.h(6),
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 32, 78, 246),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                ),
+                onPressed: _openWebView,
+                child: Text(
+                  'Get Cash',
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: Adaptive.h(2)),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ImageIcon(
+                  AssetImage(ImgAssets.privacyPolicy),
+                  color: Color.fromARGB(255, 32, 78, 246),
+                ),
+                SizedBox(width: 5),
+                Text(
+                  "Your data is safe & secure",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
