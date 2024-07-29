@@ -9,12 +9,6 @@ void main() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  // runApp(
-  //   DevicePreview(
-  //     enabled: !kReleaseMode,
-  //     builder: (context) => const BoostyTestApp(),
-  //   ),
-  // );
 
   runApp(const BoostyTestApp());
 }

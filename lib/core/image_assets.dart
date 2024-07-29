@@ -12,6 +12,8 @@ abstract class ImgAssets {
   static const String slide1 = 'assets/images/slide1.png';
   static const String slide2 = 'assets/images/slide2.png';
   static const String slide3 = 'assets/images/slide3.png';
+  static const String supportActive = 'assets/images/support_active.png';
   static const String support = 'assets/images/support.png';
+  static const String termsActive = 'assets/images/terms_active.png';
   static const String terms = 'assets/images/terms.png';
 }

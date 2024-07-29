@@ -11,25 +11,38 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage(ImgAssets.home)),
+      backgroundColor: const Color.fromARGB(255, 230, 235, 255),
+      items: <BottomNavigationBarItem>[
+        const BottomNavigationBarItem(
+          icon: ImageIcon( AssetImage(ImgAssets.home)),
           label: 'Main',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: ImageIcon(AssetImage(ImgAssets.privacyPolicy)),
           label: 'Privacy Policy',
         ),
         BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage(ImgAssets.terms)),
+          icon: currentIndex == 2
+              ? Image.asset(
+                  ImgAssets.termsActive,
+                )
+              : Image.asset(
+                  ImgAssets.terms,
+                ),
           label: 'Terms',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: ImageIcon(AssetImage(ImgAssets.faq)),
           label: 'FAQ',
         ),
         BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage(ImgAssets.support)),
+          icon: currentIndex == 4
+              ? Image.asset(
+                  ImgAssets.supportActive,
+                )
+              : Image.asset(
+                  ImgAssets.support,
+                ),
           label: 'App Support',
         ),
       ],
@@ -38,8 +51,11 @@ class BottomNavBar extends StatelessWidget {
       unselectedItemColor: const Color.fromARGB(255, 192, 192, 192),
       onTap: onItemTapped,
       showUnselectedLabels: true,
-      selectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 32, 78, 246),),
-      unselectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 192, 192, 192)),
+      selectedLabelStyle: const TextStyle(
+        color: Color.fromARGB(255, 32, 78, 246),
+      ),
+      unselectedLabelStyle:
+          const TextStyle(color: Color.fromARGB(255, 192, 192, 192)),
     );
   }
 }
