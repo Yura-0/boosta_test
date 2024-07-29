@@ -79,14 +79,17 @@ class _QuestionCardState extends State<QuestionCard>
                           fontSize: 18.sp,
                           fontWeight: FontWeight.bold,
                         ),
-                        softWrap:  true,
-                        
+                        softWrap: true,
                       ),
                     ),
                     RotationTransition(
-                      turns: _animation,
-                      child: const ImageIcon(AssetImage(ImgAssets.arrowDown,), color: Colors.black,)
-                    ),
+                        turns: _animation,
+                        child: const ImageIcon(
+                          AssetImage(
+                            ImgAssets.arrowDown,
+                          ),
+                          color: Colors.black,
+                        )),
                   ],
                 ),
               ),
@@ -96,20 +99,19 @@ class _QuestionCardState extends State<QuestionCard>
                 curve: Curves.easeInOut,
                 child: _isExpanded
                     ? LayoutBuilder(
-                      builder: (context, constraints) {
-                        return Text(
-                          widget.contentText,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          textAlign: TextAlign.justify,
-                          softWrap:  true,
-                                        
-                        );
-                      },
-                    )
+                        builder: (context, constraints) {
+                          return Text(
+                            widget.contentText,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.justify,
+                            softWrap: true,
+                          );
+                        },
+                      )
                     : const SizedBox.shrink(),
               ),
             ],

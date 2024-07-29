@@ -20,7 +20,13 @@ class CircleWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: isSelected ? const Color(0xFF2050F6) : Colors.white,
         shape: BoxShape.circle,
-        border: isSelected ? Border.all(color: const Color(0xFF2050F6),) : Border.all(color: Colors.white,),
+        border: isSelected
+            ? Border.all(
+                color: const Color(0xFF2050F6),
+              )
+            : Border.all(
+                color: Colors.white,
+              ),
       ),
       child: Center(
         child: Text(

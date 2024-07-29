@@ -114,11 +114,11 @@ class _ErrorWebWidgetState extends State<ErrorWebWidget> {
                   SizedBox(
                     height: Adaptive.h(4),
                   ),
-                  const Text(
+                  Text(
                     'Please check your internet connection',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 22.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),

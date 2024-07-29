@@ -11,8 +11,6 @@ class BoostyTestApp extends StatelessWidget {
     return ResponsiveSizer(
       builder: (context, orientation, deviceType) {
         return MaterialApp(
-          // locale: DevicePreview.locale(context),
-          // builder: DevicePreview.appBuilder,
           initialRoute: Routes.loading,
           routes: Routes.getRoutes(),
         );

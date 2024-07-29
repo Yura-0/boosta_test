@@ -14,7 +14,7 @@ class BottomNavBar extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 230, 235, 255),
       items: <BottomNavigationBarItem>[
         const BottomNavigationBarItem(
-          icon: ImageIcon( AssetImage(ImgAssets.home)),
+          icon: ImageIcon(AssetImage(ImgAssets.home)),
           label: 'Main',
         ),
         const BottomNavigationBarItem(

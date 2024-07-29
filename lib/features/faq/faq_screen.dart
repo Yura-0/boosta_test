@@ -1,8 +1,8 @@
-import 'package:boosty_test/features/faq/widgets/question_card.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../core/consts.dart';
+import 'widgets/question_card.dart';
 
 class FAQScreen extends StatelessWidget {
   const FAQScreen({super.key});

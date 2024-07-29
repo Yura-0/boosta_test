@@ -164,18 +164,18 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             SizedBox(height: Adaptive.h(2)),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ImageIcon(
+                const ImageIcon(
                   AssetImage(ImgAssets.privacyPolicy),
                   color: Color.fromARGB(255, 32, 78, 246),
                 ),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 Text(
                   "Your data is safe & secure",
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.black,
                   ),

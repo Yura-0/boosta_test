@@ -16,7 +16,8 @@ class CustomScrollPhysics extends ScrollPhysics {
 
   @override
   double applyPhysicsToUserOffset(ScrollMetrics metrics, double offset) {
-    if (disableLeftSwipe && offset < 0) { // disable left swipe
+    if (disableLeftSwipe && offset < 0) {
+      // disable left swipe
       return 0.0;
     }
     return super.applyPhysicsToUserOffset(metrics, offset);
@@ -30,7 +31,6 @@ class CustomScrollPhysics extends ScrollPhysics {
     return super.shouldAcceptUserOffset(metrics);
   }
 }
-
 
 class CustomPageView extends StatefulWidget {
   final PageController controller;
@@ -75,4 +75,3 @@ class _CustomPageViewState extends State<CustomPageView> {
     );
   }
 }
-

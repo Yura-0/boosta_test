@@ -13,7 +13,7 @@ class Routes {
     return {
       loading: (context) => const LoadingScreen(),
       home: (context) => HomeScreen(),
-      webView: (context) =>  WebViewScreen(),
+      webView: (context) => WebViewScreen(),
     };
   }
 }
