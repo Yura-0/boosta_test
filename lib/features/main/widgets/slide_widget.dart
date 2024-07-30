@@ -40,7 +40,11 @@ class SlideWidget extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(imagePath),
+                  SizedBox(
+                    height: Adaptive.h(20),
+                    // width: Adaptive.w(35),
+                    child: Image.asset(imagePath),
+                    ),
                   Padding(
                     padding: EdgeInsets.only(
                         top: Adaptive.h(4), bottom: Adaptive.h(1)),
